@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:tns="http://bpmn.io/schema/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yaoqiang="http://bpmn.sourceforge.net" exporter="Camunda Modeler" exporterVersion="4.8.1" expressionLanguage="http://www.w3.org/1999/XPath" id="Definitions_0w4cqqw" name="" targetNamespace="http://bpmn.io/schema/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://bpmn.sourceforge.net/schemas/BPMN20.xsd">
+  <bpmn:process id="Process_0tzsugl" isClosed="false" isExecutable="true" processType="None">
+    <bpmn:extensionElements>
+      <yaoqiang:description/>
+      <yaoqiang:pageFormat height="841.8897637795276" imageableHeight="831.8897637795276" imageableWidth="588.1102362204724" imageableX="5.0" imageableY="5.0" orientation="0" width="598.1102362204724"/>
+      <yaoqiang:page background="#FFFFFF" horizontalCount="1" verticalCount="1"/>
+    </bpmn:extensionElements>
+    <bpmn:startEvent camunda:initiator="loan request received" id="loan_request" isInterrupting="true" name="loan request entry" parallelMultiple="false">
+      <bpmn:outgoing>Flow_0848fhh</bpmn:outgoing>
+      <bpmn:outputSet/>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0848fhh" sourceRef="loan_request" targetRef="validate_request"/>
+    <bpmn:endEvent id="loan_process" name="loan processed">
+      <bpmn:incoming>Flow_02y4i1u</bpmn:incoming>
+      <bpmn:inputSet/>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_02y4i1u" sourceRef="validate_request" targetRef="loan_process"/>
+    <bpmn:userTask completionQuantity="1" id="validate_request" implementation="##unspecified" isForCompensation="false" name="validate loan request" startQuantity="1">
+      <bpmn:incoming>Flow_0848fhh</bpmn:incoming>
+      <bpmn:outgoing>Flow_02y4i1u</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Yaoqiang_Diagram-Process_0tzsugl" name="Untitled Diagram" resolution="96.0">
+    <bpmndi:BPMNPlane bpmnElement="Process_0tzsugl">
+      <bpmndi:BPMNShape bpmnElement="loan_request" id="Yaoqiang-loan_request">
+        <dc:Bounds height="32.0" width="32.0" x="179.0" y="99.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="18.8" width="111.0" x="144.0" y="142.16"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="loan_process" id="Yaoqiang-loan_process">
+        <dc:Bounds height="32.0" width="32.0" x="432.0" y="99.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="18.8" width="92.0" x="405.5" y="142.16"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="validate_request" id="Yaoqiang-validate_request">
+        <dc:Bounds height="80.0" width="100.0" x="270.0" y="77.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.8" width="79.0" x="280.5" y="102.6"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="Flow_0848fhh" id="Yaoqiang-Flow_0848fhh">
+        <di:waypoint x="211.0" y="115.0"/>
+        <di:waypoint x="270.0" y="117.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="18.8" width="6.0" x="237.5" y="106.6"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_02y4i1u" id="Yaoqiang-Flow_02y4i1u">
+        <di:waypoint x="370.0" y="117.0"/>
+        <di:waypoint x="432.0" y="115.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="18.8" width="6.0" x="398.0" y="106.6"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
